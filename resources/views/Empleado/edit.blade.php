@@ -66,9 +66,14 @@
 
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
-                                                <select name="moneda_sueldo" id="moneda_sueldo">
+                                                <select name="moneda_sueldo" id="moneda_sueldo" class="form-control input-sm">
+                                                <option>Tipo de moneda</option>
                                                 @foreach($moneda as moneda)
-                                                    <option value="{{$empleado->$moneda}}">{{$empleado->$moneda}}</option>
+                                                if($moneda == $empleado->moneda_sueldo)
+                                                    <option value="{{$moneda}}" selected>{{$moneda}}</option>
+                                                @else
+                                                <option value="{{$moneda}}">{{$moneda}}</option>
+                                                @endif
                                                 @endforeach
                                                 </select>
                                         </div>

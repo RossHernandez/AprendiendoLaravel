@@ -85,10 +85,10 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         //
-        $empleado = Empleado::find($id);
         $currencies = $this->getWSSoap()->AllCurrenciesResult;
-        
         $moneda = explode(';', $currencies, -1);
+
+        $empleado = Empleado::find($id);
         return view('Empleado.edit', compact('empleado', 'moneda'));
        // return view('empleado.edit',compact('empleado'));
     }
